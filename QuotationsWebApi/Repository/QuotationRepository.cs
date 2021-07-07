@@ -1,4 +1,5 @@
-﻿using QuotationsWebApi.Context;
+﻿using Microsoft.AspNetCore.JsonPatch;
+using QuotationsWebApi.Context;
 using QuotationsWebApi.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,52 +9,56 @@ namespace QuotationsWebApi.Repository
 {
     public class QuotationRepository : IQuotationRepository
     {
-  
-        public QuotationRepository()
-        {
-            if (QuotationContext.quotationList == null)
-                QuotationContext.quotationList = new List<Quotation>();
+        private readonly IQuotationContext quotationContext;
+
+        public QuotationRepository(IQuotationContext quotationContext)
+        { 
+            this.quotationContext = quotationContext;
         }
         public List<Quotation> GetAll()
         {
-            return QuotationContext.quotationList;
+            return quotationContext.quotationList;
         }
         public Quotation GetById(Guid id)
         {
-            var quotation= QuotationContext.quotationList.Where(s => s.Id == id).ElementAtOrDefault(0);
+            var quotation= quotationContext.quotationList.FirstOrDefault(s => s.Id == id);
             if (quotation!=null)
                 return quotation;
             else
-                throw new Exception("There is now quotation like this one !");
+                throw new Exception("There is no quotation like this one !");
 
         }
         public void Delete(Guid id)
         {
-            try
-            {
-                var quatation = QuotationContext.quotationList.Single(q => q.Id == id);
-
-                QuotationContext.quotationList.Remove(quatation);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"There is now quotation like this one!!!:{ex.Message}");
-
-            }
+            
+            var quotation = quotationContext.quotationList.FirstOrDefault(q => q.Id == id);
+            if (quotation == null)
+                throw new Exception("There is no quotation with this Id");
+            quotationContext.quotationList.Remove(quotation);
+            
 
         }
-        public void Update(Quotation quatation)
+        public Quotation Update(Guid id,JsonPatchDocument<Quotation> quotation)
         {
-            var quatationToUpdate = QuotationContext.quotationList.Where(s => s.Id == quatation.Id).ElementAtOrDefault(0);
-            quatationToUpdate.DataCreated = quatation.DataCreated;
-            quatationToUpdate.DataUntilValid = quatation.DataUntilValid;
-            quatationToUpdate.Price = quatation.Price;
-            quatationToUpdate.Status = quatation.Status;
-            quatationToUpdate.DossierId = quatation.DossierId;
+            var quotationToUpdate = quotationContext.quotationList.FirstOrDefault(s => s.Id ==id);
+            if (quotationToUpdate == null)
+                throw new Exception("There is no quotation!");
+            quotation.ApplyTo(quotationToUpdate);
+            return quotationToUpdate;
+            
         }
-        public void Create(Quotation quatation)
+        public void Create(Quotation quotation)
         {
-            QuotationContext.quotationList.Add(quatation);
+            var quotationToBeCreated = quotationContext.quotationList.FirstOrDefault(s => s.Id == quotation.Id);
+            if (quotationToBeCreated==null)
+            {
+                quotationContext.quotationList.Add(quotation);
+
+            }
+            else
+                throw new Exception("Quotation already exists!");
+            
+            
             
         }
 

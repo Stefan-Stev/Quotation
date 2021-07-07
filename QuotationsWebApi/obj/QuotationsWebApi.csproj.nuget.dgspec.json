@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\proiectele mele\\Quotations\\QuotationsWebApi\\QuotationsWebApi\\QuotationsWebApi.csproj": {}
+    "C:\\proiectele mele\\New folder\\Quotations\\QuotationsWebApi\\QuotationsWebApi.csproj": {}
   },
   "projects": {
-    "C:\\proiectele mele\\Quotations\\QuotationsWebApi\\QuotationsWebApi\\QuotationsWebApi.csproj": {
+    "C:\\proiectele mele\\New folder\\Quotations\\QuotationsWebApi\\QuotationsWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\proiectele mele\\Quotations\\QuotationsWebApi\\QuotationsWebApi\\QuotationsWebApi.csproj",
+        "projectUniqueName": "C:\\proiectele mele\\New folder\\Quotations\\QuotationsWebApi\\QuotationsWebApi.csproj",
         "projectName": "QuotationsWebApi",
-        "projectPath": "C:\\proiectele mele\\Quotations\\QuotationsWebApi\\QuotationsWebApi\\QuotationsWebApi.csproj",
+        "projectPath": "C:\\proiectele mele\\New folder\\Quotations\\QuotationsWebApi\\QuotationsWebApi.csproj",
         "packagesPath": "C:\\Users\\siacob\\.nuget\\packages\\",
-        "outputPath": "C:\\proiectele mele\\Quotations\\QuotationsWebApi\\QuotationsWebApi\\obj\\",
+        "outputPath": "C:\\proiectele mele\\New folder\\Quotations\\QuotationsWebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\siacob\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,18 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNet.Mvc": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
+            "Microsoft.AspNetCore.JsonPatch": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"

@@ -27,3 +27,54 @@ C:\proiectele mele\Quotations\QuotationsWebApi\QuotationsWebApi\obj\Debug\net5.0
 C:\proiectele mele\Quotations\QuotationsWebApi\QuotationsWebApi\obj\Debug\net5.0\ref\QuotationsWebApi.dll
 C:\proiectele mele\Quotations\QuotationsWebApi\QuotationsWebApi\obj\Debug\net5.0\QuotationsWebApi.pdb
 C:\proiectele mele\Quotations\QuotationsWebApi\QuotationsWebApi\obj\Debug\net5.0\QuotationsWebApi.genruntimeconfig.cache
+C:\proiectele mele\Quotations\QuotationsWebApi\QuotationsWebApi\bin\Debug\net5.0\System.Web.Mvc.dll
+C:\proiectele mele\Quotations\QuotationsWebApi\QuotationsWebApi\bin\Debug\net5.0\System.Web.Razor.dll
+C:\proiectele mele\Quotations\QuotationsWebApi\QuotationsWebApi\bin\Debug\net5.0\System.Web.Helpers.dll
+C:\proiectele mele\Quotations\QuotationsWebApi\QuotationsWebApi\bin\Debug\net5.0\System.Web.WebPages.Deployment.dll
+C:\proiectele mele\Quotations\QuotationsWebApi\QuotationsWebApi\bin\Debug\net5.0\System.Web.WebPages.Razor.dll
+C:\proiectele mele\Quotations\QuotationsWebApi\QuotationsWebApi\bin\Debug\net5.0\System.Web.WebPages.dll
+C:\proiectele mele\Quotations\QuotationsWebApi\QuotationsWebApi\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\proiectele mele\Quotations\QuotationsWebApi\QuotationsWebApi\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\proiectele mele\Quotations\QuotationsWebApi\QuotationsWebApi\bin\Debug\net5.0\Microsoft.Web.Infrastructure.dll
+C:\proiectele mele\Quotations\QuotationsWebApi\QuotationsWebApi\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\proiectele mele\Quotations\QuotationsWebApi\QuotationsWebApi\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\appsettings.Development.json
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\appsettings.json
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\QuotationsWebApi.exe
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\QuotationsWebApi.deps.json
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\QuotationsWebApi.runtimeconfig.json
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\QuotationsWebApi.runtimeconfig.dev.json
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\QuotationsWebApi.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\ref\QuotationsWebApi.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\QuotationsWebApi.pdb
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\System.Web.Mvc.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\System.Web.Razor.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\System.Web.Helpers.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\System.Web.WebPages.Deployment.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\System.Web.WebPages.Razor.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\System.Web.WebPages.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\Microsoft.Web.Infrastructure.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\obj\Debug\net5.0\QuotationsWebApi.csproj.AssemblyReference.cache
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\obj\Debug\net5.0\QuotationsWebApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\obj\Debug\net5.0\QuotationsWebApi.AssemblyInfoInputs.cache
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\obj\Debug\net5.0\QuotationsWebApi.AssemblyInfo.cs
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\obj\Debug\net5.0\QuotationsWebApi.csproj.CoreCompileInputs.cache
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\obj\Debug\net5.0\QuotationsWebApi.MvcApplicationPartsAssemblyInfo.cs
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\obj\Debug\net5.0\QuotationsWebApi.MvcApplicationPartsAssemblyInfo.cache
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\obj\Debug\net5.0\staticwebassets\QuotationsWebApi.StaticWebAssets.Manifest.cache
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\obj\Debug\net5.0\staticwebassets\QuotationsWebApi.StaticWebAssets.xml
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\obj\Debug\net5.0\scopedcss\bundle\QuotationsWebApi.styles.css
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\obj\Debug\net5.0\QuotationsWebApi.RazorTargetAssemblyInfo.cache
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\obj\Debug\net5.0\QuotationsWebApi.csproj.CopyComplete
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\obj\Debug\net5.0\QuotationsWebApi.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\obj\Debug\net5.0\ref\QuotationsWebApi.dll
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\obj\Debug\net5.0\QuotationsWebApi.pdb
+C:\proiectele mele\New folder\Quotations\QuotationsWebApi\obj\Debug\net5.0\QuotationsWebApi.genruntimeconfig.cache

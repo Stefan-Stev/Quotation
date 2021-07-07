@@ -1,4 +1,5 @@
-﻿using QuotationsWebApi.Entities;
+﻿using Microsoft.AspNetCore.JsonPatch;
+using QuotationsWebApi.Entities;
 using System;
 using System.Collections.Generic;
 
@@ -10,6 +11,6 @@ namespace QuotationsWebApi.Repository
         void Delete(Guid id);
         List<Quotation> GetAll();
         Quotation GetById(Guid id);
-        void Update(Quotation quatation);
+        Quotation Update(Guid id, JsonPatchDocument<Quotation> quatation);
     }
 }

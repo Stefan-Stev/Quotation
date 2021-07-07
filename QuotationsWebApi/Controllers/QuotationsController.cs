@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
 using QuotationsWebApi.Entities;
 using QuotationsWebApi.Repository;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace QuotationsWebApi.Controllers
 {
@@ -23,26 +23,59 @@ namespace QuotationsWebApi.Controllers
             return Ok(quotationRepository.GetAll());
         }
         [HttpGet("{id}")]
-        public ActionResult<Quotation> GetAllQuotationById(Guid id)
+        public ActionResult<Quotation> GetQuotationById(Guid id)
         {
-            return Ok(quotationRepository.GetById(id));
+            try
+            {
+                return Ok(quotationRepository.GetById(id));
+            }
+            catch
+            {
+                return NotFound();
+            }
         }
         [HttpDelete]
-        public async Task<ActionResult> RemoveQuotation(Guid id)
+        public IActionResult RemoveQuotation(Guid id)
         {
-            quotationRepository.Delete(id);
-            return Ok();
+            try
+            {
+                quotationRepository.Delete(id);
+            }
+            catch (Exception e)
+            {
+                return NotFound();
+            }
+            return NoContent();
         }
         [HttpPost]
-        public void CreateQquotation(Quotation quotation)
+        public ActionResult CreateQquotation(Quotation quotation)
         {
-            quotationRepository.Create(quotation);
+            try
+            {
+                quotationRepository.Create(quotation);
+            }
+            catch(Exception e)
+            {
+                return UnprocessableEntity("Quotation already exists!");
+            }
+            return CreatedAtAction("GetQuotationById", new { Id = quotation.Id }, quotation);
           
         }
-        [HttpPut] 
-        public void UpdateQuotation(Quotation quotation)
+        [HttpPatch("{id}")] 
+        public IActionResult Patch(Guid id,JsonPatchDocument<Quotation> quotation)
         {
-            quotationRepository.Update(quotation);
+            
+            Quotation quotationUpdated = new Quotation();
+            try
+            {
+                quotationUpdated =quotationRepository.Update(id, quotation);
+            }
+            catch
+            {
+                return NotFound($"Quotaton with Id={id} not found");
+            }
+            return Ok(quotationUpdated);
+
         }
     }
 }
