@@ -7,10 +7,12 @@ namespace QuotationsWebApi.Repository
 {
     public interface IQuotationRepository
     {
-        void Create(Quotation quatation);
+        void Create(Quotation quotation);
         void Delete(Guid id);
         List<Quotation> GetAll();
         Quotation GetById(Guid id);
-        Quotation Update(Guid id, JsonPatchDocument<Quotation> quatation);
+        Quotation Patch(Guid id, JsonPatchDocument<Quotation> quotation);
+        void Update(Quotation quotation);
+        public bool QuotationExists(Guid Id);
     }
 }

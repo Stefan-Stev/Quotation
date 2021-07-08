@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.EntityFrameworkCore;
 using QuotationsWebApi.Context;
 using QuotationsWebApi.Entities;
 using System;
@@ -9,20 +10,20 @@ namespace QuotationsWebApi.Repository
 {
     public class QuotationRepository : IQuotationRepository
     {
-        private readonly IQuotationContext quotationContext;
+        private readonly QuotationContext quotationContext;
 
-        public QuotationRepository(IQuotationContext quotationContext)
-        { 
+        public QuotationRepository(QuotationContext quotationContext)
+        {
             this.quotationContext = quotationContext;
         }
         public List<Quotation> GetAll()
         {
-            return quotationContext.quotationList;
+            return quotationContext.Quotations.ToList();
         }
         public Quotation GetById(Guid id)
         {
-            var quotation= quotationContext.quotationList.FirstOrDefault(s => s.Id == id);
-            if (quotation!=null)
+            var quotation = quotationContext.Quotations.Find(id);
+            if (quotation != null)
                 return quotation;
             else
                 throw new Exception("There is no quotation like this one !");
@@ -30,37 +31,46 @@ namespace QuotationsWebApi.Repository
         }
         public void Delete(Guid id)
         {
-            
-            var quotation = quotationContext.quotationList.FirstOrDefault(q => q.Id == id);
+
+            var quotation = quotationContext.Quotations.Find(id);
             if (quotation == null)
                 throw new Exception("There is no quotation with this Id");
-            quotationContext.quotationList.Remove(quotation);
-            
+            quotationContext.Quotations.Remove(quotation);
+            quotationContext.SaveChanges();
+
 
         }
-        public Quotation Update(Guid id,JsonPatchDocument<Quotation> quotation)
+        public Quotation Patch(Guid id, JsonPatchDocument<Quotation> quotation)
         {
-            var quotationToUpdate = quotationContext.quotationList.FirstOrDefault(s => s.Id ==id);
+            var quotationToUpdate = quotationContext.Quotations.Find(id);
             if (quotationToUpdate == null)
                 throw new Exception("There is no quotation!");
             quotation.ApplyTo(quotationToUpdate);
+            quotationContext.SaveChanges();
             return quotationToUpdate;
-            
+
+        }
+        public void Update(Quotation quotation)
+        {
+            this.quotationContext.Entry(quotation).State = EntityState.Modified;
+            quotationContext.SaveChanges();
+
         }
         public void Create(Quotation quotation)
         {
-            var quotationToBeCreated = quotationContext.quotationList.FirstOrDefault(s => s.Id == quotation.Id);
-            if (quotationToBeCreated==null)
+            var quotationToBeCreated = quotationContext.Quotations.Find(quotation.Id);
+            if (quotationToBeCreated == null)
             {
-                quotationContext.quotationList.Add(quotation);
-
+                quotationContext.Quotations.Add(quotation);
+                quotationContext.SaveChanges();
             }
             else
                 throw new Exception("Quotation already exists!");
-            
-            
-            
+
+
+
         }
+        public bool QuotationExists(Guid Id) => quotationContext.Quotations.Any(e => e.Id == Id);
 
 
 

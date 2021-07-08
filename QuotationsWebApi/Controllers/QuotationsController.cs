@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using QuotationsWebApi.Entities;
 using QuotationsWebApi.Repository;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace QuotationsWebApi.Controllers
 {
@@ -68,7 +70,7 @@ namespace QuotationsWebApi.Controllers
             Quotation quotationUpdated = new Quotation();
             try
             {
-                quotationUpdated =quotationRepository.Update(id, quotation);
+                quotationUpdated =quotationRepository.Patch(id, quotation);
             }
             catch
             {
@@ -76,6 +78,26 @@ namespace QuotationsWebApi.Controllers
             }
             return Ok(quotationUpdated);
 
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(Guid id, Quotation quotation)
+        {
+            if (id != quotation.Id)
+                return BadRequest();
+            try
+            {
+                quotationRepository.Update(quotation);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!quotationRepository.QuotationExists(quotation.Id))
+                {
+                    return NotFound();
+                }
+                else
+                    throw;
+            }
+            return NoContent();
         }
     }
 }

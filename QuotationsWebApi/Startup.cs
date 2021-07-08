@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using QuotationsWebApi.Context;
 using QuotationsWebApi.Repository;
-
+using Microsoft.EntityFrameworkCore;
 namespace QuotationsWebApi
 {
     public class Startup
@@ -21,8 +21,11 @@ namespace QuotationsWebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IQuotationRepository, QuotationRepository>();
-            services.AddSingleton<IQuotationContext, QuotationContext>();
+            services.AddScoped<IQuotationRepository, QuotationRepository>();
+            services.AddDbContext<QuotationContext>(options =>
+            {
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
+            });
 
 
             services.AddControllers().AddNewtonsoftJson();
