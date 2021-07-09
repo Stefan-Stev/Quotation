@@ -5,6 +5,7 @@ using QuotationsWebApi.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace QuotationsWebApi.Repository
 {
@@ -16,53 +17,53 @@ namespace QuotationsWebApi.Repository
         {
             this.quotationContext = quotationContext;
         }
-        public List<Quotation> GetAll()
+        public async Task<List<Quotation>> GetAllQuotations()
         {
-            return quotationContext.Quotations.ToList();
+            return await quotationContext.Quotations.ToListAsync();
         }
-        public Quotation GetById(Guid id)
+        public async  Task<Quotation> GetQuotationById(Guid id)
         {
-            var quotation = quotationContext.Quotations.Find(id);
+            var quotation = await quotationContext.Quotations.FindAsync(id);
             if (quotation != null)
                 return quotation;
             else
                 throw new Exception("There is no quotation like this one !");
 
         }
-        public void Delete(Guid id)
+        public async Task DeleteQuotation(Guid id)
         {
 
-            var quotation = quotationContext.Quotations.Find(id);
+            var quotation =await quotationContext.Quotations.FindAsync(id);
             if (quotation == null)
                 throw new Exception("There is no quotation with this Id");
             quotationContext.Quotations.Remove(quotation);
-            quotationContext.SaveChanges();
+            quotationContext.SaveChangesAsync();
 
 
         }
-        public Quotation Patch(Guid id, JsonPatchDocument<Quotation> quotation)
+        public async Task<Quotation> Patch(Guid id, JsonPatchDocument<Quotation> quotation)
         {
-            var quotationToUpdate = quotationContext.Quotations.Find(id);
+            var quotationToUpdate =await quotationContext.Quotations.FindAsync(id);
             if (quotationToUpdate == null)
                 throw new Exception("There is no quotation!");
             quotation.ApplyTo(quotationToUpdate);
-            quotationContext.SaveChanges();
+            quotationContext.SaveChangesAsync();
             return quotationToUpdate;
 
         }
-        public void Update(Quotation quotation)
+        public async Task Update(Quotation quotation)
         {
             this.quotationContext.Entry(quotation).State = EntityState.Modified;
-            quotationContext.SaveChanges();
+            quotationContext.SaveChangesAsync();
 
         }
-        public void Create(Quotation quotation)
+        public async Task CreateQuotation(Quotation quotation)
         {
-            var quotationToBeCreated = quotationContext.Quotations.Find(quotation.Id);
+            var quotationToBeCreated = await quotationContext.Quotations.FindAsync(quotation.Id);
             if (quotationToBeCreated == null)
             {
                 quotationContext.Quotations.Add(quotation);
-                quotationContext.SaveChanges();
+                quotationContext.SaveChangesAsync();
             }
             else
                 throw new Exception("Quotation already exists!");

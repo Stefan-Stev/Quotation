@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.JsonPatch;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using QuotationsWebApi.Dtos;
 using QuotationsWebApi.Entities;
 using QuotationsWebApi.Repository;
 using System;
@@ -14,22 +16,26 @@ namespace QuotationsWebApi.Controllers
     public class QuotationsController : ControllerBase
     {
         private readonly IQuotationRepository quotationRepository;
+        private readonly IMapper _mapper;
 
-        public QuotationsController(IQuotationRepository quotationRepository)
+        public QuotationsController(IQuotationRepository quotationRepository, IMapper mapper)
         {
             this.quotationRepository = quotationRepository;
+            _mapper = mapper;
         }
         [HttpGet]
-        public ActionResult <List<Quotation>> GetQuotations()
+        public async Task<ActionResult <List<Quotation>>> GetQuotations()
         {
-            return Ok(quotationRepository.GetAll());
+            return Ok(await quotationRepository.GetAllQuotations());
         }
         [HttpGet("{id}")]
-        public ActionResult<Quotation> GetQuotationById(Guid id)
+        public async Task<ActionResult<QuotationDto>> GetQuotationById(Guid id)
         {
             try
             {
-                return Ok(quotationRepository.GetById(id));
+                Quotation quotationEntity = await quotationRepository.GetQuotationById(id);
+                var quotationDto = _mapper.Map<QuotationDto>(quotationEntity);
+                return Ok(quotationDto);
             }
             catch
             {
@@ -37,11 +43,12 @@ namespace QuotationsWebApi.Controllers
             }
         }
         [HttpDelete]
-        public IActionResult RemoveQuotation(Guid id)
+        public async Task<IActionResult> RemoveQuotation(Guid id)
         {
+            
             try
             {
-                quotationRepository.Delete(id);
+               await quotationRepository.DeleteQuotation(id);
             }
             catch (Exception e)
             {
@@ -50,11 +57,17 @@ namespace QuotationsWebApi.Controllers
             return NoContent();
         }
         [HttpPost]
-        public ActionResult CreateQquotation(Quotation quotation)
+        public async Task<ActionResult> CreateQquotation(QuotationDto quotationDto)
         {
+            Quotation quotation;
             try
             {
-                quotationRepository.Create(quotation);
+                if(quotationDto==null)
+                    return BadRequest("Quotation object is null");
+                if (!ModelState.IsValid)
+                    return BadRequest("Invalid model oject");
+                quotation = _mapper.Map<Quotation>(quotationDto);
+                await quotationRepository.CreateQuotation(quotation);
             }
             catch(Exception e)
             {
@@ -64,13 +77,13 @@ namespace QuotationsWebApi.Controllers
           
         }
         [HttpPatch("{id}")] 
-        public IActionResult Patch(Guid id,JsonPatchDocument<Quotation> quotation)
+        public async Task<IActionResult> Patch(Guid id,JsonPatchDocument<Quotation> quotation)
         {
-            
-            Quotation quotationUpdated = new Quotation();
+
+            Quotation quotationUpdated;
             try
             {
-                quotationUpdated =quotationRepository.Patch(id, quotation);
+                quotationUpdated =await quotationRepository.Patch(id, quotation);
             }
             catch
             {
@@ -86,13 +99,13 @@ namespace QuotationsWebApi.Controllers
                 return BadRequest();
             try
             {
-                quotationRepository.Update(quotation);
+                await quotationRepository.Update(quotation);
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!quotationRepository.QuotationExists(quotation.Id))
                 {
-                    return NotFound();
+                    return NotFound($"Quotaton with Id= {id} not found");
                 }
                 else
                     throw;

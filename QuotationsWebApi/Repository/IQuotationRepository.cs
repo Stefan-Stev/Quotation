@@ -2,17 +2,18 @@
 using QuotationsWebApi.Entities;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace QuotationsWebApi.Repository
 {
     public interface IQuotationRepository
     {
-        void Create(Quotation quotation);
-        void Delete(Guid id);
-        List<Quotation> GetAll();
-        Quotation GetById(Guid id);
-        Quotation Patch(Guid id, JsonPatchDocument<Quotation> quotation);
-        void Update(Quotation quotation);
+        Task CreateQuotation(Quotation quotation);
+        Task DeleteQuotation (Guid id);
+        Task<List<Quotation>> GetAllQuotations();
+        Task<Quotation> GetQuotationById(Guid id);
+        Task<Quotation> Patch(Guid id, JsonPatchDocument<Quotation> quotation);
+        Task Update(Quotation quotation);
         public bool QuotationExists(Guid Id);
     }
 }

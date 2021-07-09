@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "yanf/R/pfmxuBVzS4bocoqoCSKZWzR1TlFuvgleEiRfmmQKIkXd9D+/C2zZiByf7CO01gAnjiPgTa5INjUbXMQ==",
+  "dgSpecHash": "5asYTrJeoGaVMhyZ1XJbor7jqyGNpMvGEHhQVGjTBZAkIaG1JQ2YRC/+PAjxq50yhQWr4p7W5MqwraOcwC5Jog==",
   "success": true,
   "projectFilePath": "C:\\proiectele mele\\New folder\\Quotations\\QuotationsWebApi\\QuotationsWebApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\siacob\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\siacob\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\siacob\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\siacob\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.7\\microsoft.aspnet.mvc.5.2.7.nupkg.sha512",
     "C:\\Users\\siacob\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.7\\microsoft.aspnet.razor.3.2.7.nupkg.sha512",
@@ -47,6 +49,7 @@
     "C:\\Users\\siacob\\.nuget\\packages\\system.collections.immutable\\6.0.0-preview.5.21301.5\\system.collections.immutable.6.0.0-preview.5.21301.5.nupkg.sha512",
     "C:\\Users\\siacob\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0-preview.5.21301.5\\system.diagnostics.diagnosticsource.6.0.0-preview.5.21301.5.nupkg.sha512",
     "C:\\Users\\siacob\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\siacob\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\siacob\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0-preview.5.21301.5\\system.runtime.compilerservices.unsafe.6.0.0-preview.5.21301.5.nupkg.sha512",
     "C:\\Users\\siacob\\.nuget\\packages\\system.text.encodings.web\\6.0.0-preview.5.21301.5\\system.text.encodings.web.6.0.0-preview.5.21301.5.nupkg.sha512",
     "C:\\Users\\siacob\\.nuget\\packages\\system.text.json\\6.0.0-preview.5.21301.5\\system.text.json.6.0.0-preview.5.21301.5.nupkg.sha512"
