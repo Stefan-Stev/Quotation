@@ -37,7 +37,7 @@ namespace QuotationsWebApi.Repository
             if (quotation == null)
                 throw new Exception("There is no quotation with this Id");
             quotationContext.Quotations.Remove(quotation);
-            quotationContext.SaveChangesAsync();
+            await quotationContext.SaveChangesAsync();
 
 
         }
@@ -47,14 +47,14 @@ namespace QuotationsWebApi.Repository
             if (quotationToUpdate == null)
                 throw new Exception("There is no quotation!");
             quotation.ApplyTo(quotationToUpdate);
-            quotationContext.SaveChangesAsync();
+            await quotationContext.SaveChangesAsync();
             return quotationToUpdate;
 
         }
         public async Task Update(Quotation quotation)
         {
             this.quotationContext.Entry(quotation).State = EntityState.Modified;
-            quotationContext.SaveChangesAsync();
+            await quotationContext.SaveChangesAsync();
 
         }
         public async Task CreateQuotation(Quotation quotation)
@@ -63,7 +63,7 @@ namespace QuotationsWebApi.Repository
             if (quotationToBeCreated == null)
             {
                 quotationContext.Quotations.Add(quotation);
-                quotationContext.SaveChangesAsync();
+                await quotationContext.SaveChangesAsync();
             }
             else
                 throw new Exception("Quotation already exists!");
