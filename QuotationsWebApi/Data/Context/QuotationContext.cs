@@ -1,8 +1,6 @@
 ﻿
-
 using Microsoft.EntityFrameworkCore;
 using QuotationsWebApi.Entities;
-using System.Collections.Generic;
 
 namespace QuotationsWebApi.Context
 {
@@ -13,7 +11,14 @@ namespace QuotationsWebApi.Context
 
         }
         public DbSet<Quotation> Quotations { get; set; }
+        public DbSet<Dossier> Dossiers { get; set; }
 
-        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Quotation>()
+                .HasOne(q => q.CurrentDossier)
+                .WithMany(d => d.Quotations)
+                .HasForeignKey(q => q.DossierId);
+        }
     }
 }

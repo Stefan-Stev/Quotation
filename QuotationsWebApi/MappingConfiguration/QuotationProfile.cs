@@ -1,10 +1,6 @@
 ﻿using AutoMapper;
 using QuotationsWebApi.Dtos;
 using QuotationsWebApi.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace QuotationsWebApi.MappingConfiguration
 {
@@ -12,8 +8,10 @@ namespace QuotationsWebApi.MappingConfiguration
     {
         public QuotationProfile()
         {
-            CreateMap<QuotationDto, Quotation>();
-            CreateMap<Quotation, QuotationDto>();
+            CreateMap<QuotationForCreationDto, Quotation>();
+            CreateMap<Quotation, QuotationForCreationDto>();
+            CreateMap<QuotationGetDto, Quotation>();
+            CreateMap<Quotation, QuotationGetDto>();
         }
     }
 }

@@ -14,6 +14,7 @@ namespace QuotationsWebApi.Repository
         Task<Quotation> GetQuotationById(Guid id);
         Task<Quotation> Patch(Guid id, JsonPatchDocument<Quotation> quotation);
         Task Update(Quotation quotation);
-        public bool QuotationExists(Guid Id);
+        Task AddQuotationToDossier(Quotation quotation, Dossier dossier);
+        bool QuotationExists(Guid Id);
     }
 }

@@ -22,9 +22,16 @@ namespace QuotationsWebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IQuotationRepository, QuotationRepository>();
+            services.AddScoped<IDossierRepository, DossierRepository>();
             services.AddDbContext<QuotationContext>(options =>
             {
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
+            });
+            services.AddApiVersioning(config =>
+            {
+                config.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
+                config.AssumeDefaultVersionWhenUnspecified = true;
+                config.ReportApiVersions = true;
             });
             services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();

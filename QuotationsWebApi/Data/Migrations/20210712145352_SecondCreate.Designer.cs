@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QuotationsWebApi.Context;
 
 namespace QuotationsWebApi.Data.Migrations
 {
     [DbContext(typeof(QuotationContext))]
-    partial class QuotationContextModelSnapshot : ModelSnapshot
+    [Migration("20210712145352_SecondCreate")]
+    partial class SecondCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -18,17 +20,17 @@ namespace QuotationsWebApi.Data.Migrations
 
             modelBuilder.Entity("QuotationsWebApi.Entities.Dossier", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("DossierId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("DossierName")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Year")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.HasKey("DossierId");
 
                     b.ToTable("Dossiers");
                 });
@@ -39,7 +41,10 @@ namespace QuotationsWebApi.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("CreationDate")
+                    b.Property<DateTime>("DataCreated")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("DataUntilValid")
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("DossierId")
@@ -48,14 +53,11 @@ namespace QuotationsWebApi.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("TEXT");
+                    b.Property<float>("Price")
+                        .HasColumnType("REAL");
 
                     b.Property<int>("Status")
                         .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("ValidUntilDate")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
