@@ -1,6 +1,6 @@
-﻿using Application.Contracts.Model;
-using Application.Features.DossierFeatures.Commands;
-using Application.Features.DossierFeatures.Queries;
+﻿using Application.Commands;
+using Application.Contracts.Model;
+using Application.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;

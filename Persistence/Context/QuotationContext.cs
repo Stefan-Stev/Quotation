@@ -8,10 +8,6 @@ namespace Persistence.Context
 {
     public class QuotationContext : DbContext, IApplicationContext
     {
-        public QuotationContext()
-        {
-        }
-
         public QuotationContext(DbContextOptions<QuotationContext> options) : base(options)
         {
 
@@ -32,5 +28,7 @@ namespace Persistence.Context
                 .HasForeignKey(q => q.DossierId);
 
         }
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+    => options.UseSqlite("DataSource=quotation.db");
     }
 }
