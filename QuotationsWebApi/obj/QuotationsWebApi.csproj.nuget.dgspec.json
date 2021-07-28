@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\proiectele mele\\New folder\\Quotations\\QuotationsWebApi\\QuotationsWebApi.csproj": {}
+    "C:\\proiectele mele\\Quotations EF\\Quotations\\QuotationsWebApi\\QuotationsWebApi.csproj": {}
   },
   "projects": {
-    "C:\\proiectele mele\\New folder\\Quotations\\QuotationsWebApi\\QuotationsWebApi.csproj": {
+    "C:\\proiectele mele\\Quotations EF\\Quotations\\QuotationsWebApi\\QuotationsWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\proiectele mele\\New folder\\Quotations\\QuotationsWebApi\\QuotationsWebApi.csproj",
+        "projectUniqueName": "C:\\proiectele mele\\Quotations EF\\Quotations\\QuotationsWebApi\\QuotationsWebApi.csproj",
         "projectName": "QuotationsWebApi",
-        "projectPath": "C:\\proiectele mele\\New folder\\Quotations\\QuotationsWebApi\\QuotationsWebApi.csproj",
+        "projectPath": "C:\\proiectele mele\\Quotations EF\\Quotations\\QuotationsWebApi\\QuotationsWebApi.csproj",
         "packagesPath": "C:\\Users\\siacob\\.nuget\\packages\\",
-        "outputPath": "C:\\proiectele mele\\New folder\\Quotations\\QuotationsWebApi\\obj\\",
+        "outputPath": "C:\\proiectele mele\\Quotations EF\\Quotations\\QuotationsWebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\siacob\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
+            "Ensure.That": {
+              "target": "Package",
+              "version": "[10.1.0, )"
+            },
             "Microsoft.AspNet.Mvc": {
               "target": "Package",
               "version": "[5.2.7, )"
@@ -52,9 +60,35 @@
               "target": "Package",
               "version": "[5.0.7, )"
             },
+            "Microsoft.AspNetCore.Mvc.Versioning": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.0-preview.5.21301.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0-preview.5.21301.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[6.0.0-preview.5.21301.9, )"
+            },
+            "SQLite": {
+              "target": "Package",
+              "version": "[3.13.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
+            },
+            "System.Collections": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             }
           },
           "imports": [
