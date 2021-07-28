@@ -10,7 +10,7 @@ namespace Persistence
     {
         public static void AddPersistence(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<QuotationContext>(options =>  options.UseSqlite(configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<QuotationContext>(options =>  options.UseSqlite(configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly(typeof(QuotationContext).Assembly.FullName)));
             services.AddScoped<IApplicationContext>(provider => provider.GetService<QuotationContext>());
         }
     }

@@ -58,17 +58,6 @@ namespace Persistence.Repository.v1
         
         }
 
-        public async Task<Dossier> Patch(Guid id, JsonPatchDocument<Dossier> dossier)
-        {
-            var dossierToUpdate = await _quotationContext.Dossiers.FindAsync(id);
-            if (dossierToUpdate == null)
-                throw new Exception("No dossier was found");
-
-            dossier.ApplyTo(dossierToUpdate);
-            await _quotationContext.SaveChangesAsync();
-            return dossierToUpdate;
-        }
-
         public async Task  CreateDossier(Dossier dossier)
         {
             await _quotationContext.Dossiers.AddAsync(dossier);
