@@ -43,9 +43,7 @@ namespace Persistence.Repository.v1
             {
                 throw new Exception($"Quotation could not be deleted: {e.Message}");
             }
-                
-            
-        }
+        }     
 
         public async Task<Quotation> Patch(Guid id, JsonPatchDocument<Quotation> quotation)
         {
