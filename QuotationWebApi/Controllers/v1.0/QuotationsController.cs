@@ -60,7 +60,7 @@ namespace QuotationsWebApi.Controllers
         }
         
         [HttpPut("/api/partialUpdate")]
-        public async Task<IActionResult> Update(QuotationPartialUpdateCommand command)
+        public async Task<IActionResult> UpdatePartial(QuotationPartialUpdateCommand command)
         {
             var responseId = await _mediatR.Send(command);
             var response = new Response { Id = responseId };
