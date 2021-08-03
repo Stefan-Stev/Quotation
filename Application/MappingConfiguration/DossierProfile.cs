@@ -1,5 +1,5 @@
-﻿using Application.Contracts.Dtos.DossierDtos;
-using Application.Features.DossierFeatures.Commands;
+﻿using Application.Commands;
+using Application.Contracts.Dtos.DossierDtos;
 using AutoMapper;
 using Domain.Entities;
 
@@ -9,8 +9,6 @@ namespace Application.MappingConfiguration
     {
         public DossierProfile()
         {
-            CreateMap<DossierForCreationUpdateDto, Dossier>();
-            CreateMap<Dossier, DossierForCreationUpdateDto>();
             CreateMap<DossierUpdateCommand, Dossier>();
             CreateMap<DossierGetDto, Dossier>();
             CreateMap<Dossier, DossierGetDto>();

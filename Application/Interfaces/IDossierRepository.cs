@@ -12,7 +12,6 @@ namespace QuotationsWebApi.Repository
         Task DeleteDossier(Dossier dossier);
         Task<List<Dossier>> GetAllDossier();
         Task<Dossier> GetDossierById(Guid id);
-        Task<Dossier> Patch(Guid id, JsonPatchDocument<Dossier> dossier);
         Task<Dossier> Update(Dossier dossier);
         bool DossierExists(Guid id);
     }

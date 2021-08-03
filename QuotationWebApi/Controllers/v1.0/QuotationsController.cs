@@ -1,6 +1,6 @@
-﻿using Application.Contracts.Model;
-using Application.Features.QuotationFeatures.Commands;
-using Application.Features.QuotationFeatures.Queries;
+﻿using Application.Commands;
+using Application.Contracts.Model;
+using Application.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using QuotationWebApi.Controllers;
@@ -14,7 +14,7 @@ namespace QuotationsWebApi.Controllers
 
     public class QuotationsController : BaseApiController
     {
-        public QuotationsController(IMediator mediator):base(mediator)
+        public QuotationsController(IMediator mediator) : base(mediator)
         {
         }
 
@@ -60,7 +60,7 @@ namespace QuotationsWebApi.Controllers
         }
         
         [HttpPut("/api/partialUpdate")]
-        public async Task<IActionResult> Update(QuotationPartialUpdateCommand command)
+        public async Task<IActionResult> UpdatePartial(QuotationPartialUpdateCommand command)
         {
             var responseId = await _mediatR.Send(command);
             var response = new Response { Id = responseId };
